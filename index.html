@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aspect Ratio Visualizer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .aspect-box {
+            transition: all 0.3s ease;
+            border: 2px solid #3b82f6;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+        .aspect-box:hover {
+            transform: scale(1.02);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+        .selected-ratio {
+            border: 3px solid #10b981;
+            box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.3);
+        }
+    </style>
+</head>
+<body class="bg-gray-100 min-h-screen">
+    <!-- Header -->
+    <header class="bg-gradient-to-r from-blue-600 to-purple-600 text-white shadow-lg">
+        <div class="container mx-auto px-4 py-6">
+            <h1 class="text-4xl font-bold mb-2">Aspect Ratio Visualizer</h1>
+            <p class="text-blue-100">Interactive comparison and scaling tool for common aspect ratios</p>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 py-8">
+        <!-- Controls Section -->
+        <div class="bg-white rounded-lg shadow-md p-6 mb-8">
+            <h2 class="text-2xl font-bold text-gray-800 mb-4">Controls</h2>
+            
+            <!-- Scale Slider -->
+            <div class="mb-6">
+                <label class="block text-gray-700 font-semibold mb-2">
+                    Scale: <span id="scaleValue" class="text-blue-600">100</span>px (Base Width)
+                </label>
+                <input type="range" id="scaleSlider" min="50" max="500" value="100" 
+                       class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer">
+            </div>
+
+            <!-- Aspect Ratio Categories -->
+            <div class="grid md:grid-cols-2 gap-6">
+                <!-- Common Aspect Ratios -->
+                <div>
+                    <h3 class="text-lg font-semibold text-gray-700 mb-3">Common Aspect Ratios</h3>
+                    <div class="space-y-2" id="commonRatios"></div>
+                </div>
+
+                <!-- A-Series Paper Formats -->
+                <div>
+                    <h3 class="text-lg font-semibold text-gray-700 mb-3">A-Series Paper Formats</h3>
+                    <div class="space-y-2" id="aSeriesRatios"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Visualization Section -->
+        <div class="bg-white rounded-lg shadow-md p-6">
+            <h2 class="text-2xl font-bold text-gray-800 mb-6">Visualization</h2>
+            <div id="visualizationArea" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Aspect ratio boxes will be dynamically generated here -->
+            </div>
+        </div>
+
+        <!-- Information Section -->
+        <div class="bg-white rounded-lg shadow-md p-6 mt-8">
+            <h2 class="text-2xl font-bold text-gray-800 mb-4">About Aspect Ratios</h2>
+            <div class="grid md:grid-cols-2 gap-6 text-gray-700">
+                <div>
+                    <h3 class="font-semibold text-lg mb-2">Common Ratios</h3>
+                    <ul class="space-y-2">
+                        <li><strong>16:9</strong> - Standard HD video and modern displays</li>
+                        <li><strong>4:3</strong> - Classic TV and computer monitors</li>
+                        <li><strong>21:9</strong> - Ultra-wide cinema and gaming displays</li>
+                        <li><strong>1:1</strong> - Square format (Instagram posts)</li>
+                        <li><strong>16:10</strong> - Common for laptops and tablets</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="font-semibold text-lg mb-2">A-Series Paper</h3>
+                    <ul class="space-y-2">
+                        <li><strong>A4</strong> - 210mm × 297mm (Most common document size)</li>
+                        <li><strong>A3</strong> - 297mm × 420mm (Posters, diagrams)</li>
+                        <li><strong>A5</strong> - 148mm × 210mm (Notebooks, flyers)</li>
+                        <li><strong>Ratio</strong> - √2:1 (1.414:1) for all A-series</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white mt-12 py-6">
+        <div class="container mx-auto px-4 text-center">
+            <p>Aspect Ratio Visualizer - Interactive Tool for Ratio Comparison</p>
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>
