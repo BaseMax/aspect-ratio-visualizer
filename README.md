@@ -2,6 +2,8 @@
 
 Interactive aspect ratio comparison and scaling tool built with JavaScript and Tailwind CSS.
 
+![Aspect Ratio Visualizer](preview.jpg)
+
 ## Features
 
 - **Common Aspect Ratios**: Visualize popular aspect ratios including:
