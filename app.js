@@ -158,11 +158,5 @@ function createVisualizationCard(ratio) {
     return card;
 }
 
-// Animation for smooth scaling
-function animateScale(element, targetWidth, targetHeight) {
-    element.style.width = `${targetWidth}px`;
-    element.style.height = `${targetHeight}px`;
-}
-
 // Initialize on page load
 document.addEventListener('DOMContentLoaded', init);
